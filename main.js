@@ -1,50 +1,95 @@
 
-function check(){
-    if(document.getElementById("codetipo").value==="cesar"){
-        document.getElementById("decodificar").style.display="none"
-        document.getElementById("codificar").style.display="inline"
-    } else {document.getElementById("decodificar").style.display="inline" 
-         document.getElementById("codificar").style.display="none"
-}
-}
-
-function code(){
-num=document.getElementById("number").value
-var minusCulas = document.getElementById("texto").value.toLowerCase();
-var alfabeto = 'abcdefghijklmnoprstuvwxyz'.split('')
-var cesar = '';
-
-for (var i=0; i<minusCulas.length; i++){
-    var cifra =minusCulas[i];
-    if (cifra === ' '){
-        cesar += minusCulas[i]; 
-        continue;
+var select = document.querySelector('.selecionar');
+var botaoResultado = document.querySelector("#verificar");
+var incremento = document.querySelector('#numero');
+var labelIncremento = document.querySelector('.incremento');
+var alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+select.addEventListener('click', function () {
+    if (select.value == 'cesar') {
+        labelIncremento.style.display = 'flex';
+        incremento.style.display = 'flex';
+    } else {
+        labelIncremento.style.display = 'none';
+        incremento.style.display = 'none';
     }
-    var minusculasindex = alfabeto.indexOf(cifra);
-    var cesaRindex = minusculasindex + parseInt(num);
-    if (cesaRindex > 25) cesaRindex = cesaRindex -26;
-    if (cesaRindex < 0) cesaRindex = cesaRindex + 26;
-    if (minusCulas[i] === minusCulas[i].toUpperCase()){
-        cesar  += alfabeto[cesaRindex].toUpperCase();
-        
-    
-    } else cesar += alfabeto [cesaRindex];
-} document.getElementById("texto").value=cesar}
-
-const inpt = document.querySelector("#inpt");
-const btn = document.querySelector("#btn");
-const btn2 = document.querySelector("#btn2");
-
-const sub = document.querySelector("#subtitle");
-
-btn.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  sub.innerHTML = btoa(inpt.value);
 });
 
-btn2.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  sub.innerHTML = atob(inpt.value);
+botaoResultado.addEventListener('click', function () {
+    let radio = document.getElementsByName('cod');
+    if (radio[0].checked && select.value == 'cesar') {
+        cesarCodificado();
+    } else if (radio[1].checked && select.value == 'cesar') {
+        cesarDecodificado();
+    } else if (radio[0].checked && select.value == 'base64') {
+        baseCodificada();
+    } else if (radio[1].checked && select.value == 'base64') {
+        baseDecodificada();
+    }
 });
+
+function cesarCodificado() {
+    let letra = document.querySelector('.text').value.toLowerCase();
+    let incremento = document.getElementById('numero').value;
+    let inteiro = parseInt(incremento);
+    let resultado = '';
+
+    if (incremento > 25 || incremento < 1) {
+        document.querySelector('.resultado').innerHTML = `Incremento inválido! insira incremento de 1 a 25.`;
+    } else {
+        for (let i = 0; i < letra.length; i++) {
+            if (letra[i] != " ") {
+                for (let j = 0; j < alfabeto.length; j++) {
+                    if (letra[i] == alfabeto[j]) {
+                        resultado += alfabeto[(j + inteiro) % alfabeto.length];
+                    }
+                }
+            }
+            else {
+                resultado += " ";
+            }
+        }
+        document.querySelector('.resultado').innerHTML = `${resultado}`;
+    }
+    return resultado;
+};
+
+function cesarDecodificado() {
+    let letra = document.querySelector('.text').value.toLowerCase();
+    let incremento = document.getElementById('numero').value;
+    let inteiro = parseInt(incremento);
+    let resultado = '';
+
+    if (incremento > 25 || incremento < 1) {
+        document.querySelector('.resultado').innerHTML = `Incremento inválido! insira incremento de 1 a 25.`;
+    } else {
+        for (let i = 0; i < letra.length; i++) {
+            if (letra[i] != " ") {
+                for (let j = 0; j < alfabeto.length; j++) {
+                    if (letra[i] == alfabeto[j] && (j - inteiro) % 26 >= 0) {
+                        resultado += alfabeto[(j - inteiro) % 26];
+                    }
+                    else if (letra[i] == alfabeto[j] && (j - inteiro) % 26 < 0) {
+                        resultado += alfabeto[26 + (j - inteiro) % 26];
+                    }
+                }
+            }
+            else {
+                resultado += " ";
+            }
+        }
+        document.querySelector('.resultado').innerHTML = `${resultado}`;
+    }
+    return resultado;
+};
+
+function baseCodificada() {
+    let letra = document.querySelector('.text').value;
+    let resultado = btoa(letra);
+    return document.querySelector('.resultado').innerHTML = `${resultado}`;
+};
+
+function baseDecodificada() {
+    let letra = document.querySelector('.text').value;
+    let resultado = atob(letra);
+    return document.querySelector('.resultado').innerHTML = `${resultado}`;
+};

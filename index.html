@@ -12,50 +12,42 @@
         <h1>Decodificador de mensagens</h1>
         <br>
         <br>
-        <h2>Transmita suas mensagens secretamente com 2 tipos de criptografia! Escolha abaixo e depois copie e cole.</h2>
+        <h2>Transmita suas mensagens secretamente com 2 tipos de criptografia! Escolha a criptografia, digite sua mensagem, clique em "(des)Criptografar" e copie seu texto.</h2>
     </header>
     <br>
     <br>
 
-    <main>
-           <div id="seletor">
-            <select onchange="check()" id="codetipo"><br>
-                <option>Selecione a linguagem</option>
-                <option value="base64">Base64</option>
-                <option value="cesar">Cifra de Cesar</option>
-            </select>
-            <br>
-            <br>
-        </div>
+    <main class="principal">
+        
+        <select class="selecionar">
+            <option>Selecione a criptografia</option>
+            <option value="cesar">Cifra de Cesar</option>
+            <option value="base64">Base 64</option>
+        </select>
+        <br>
 
-            <fieldset id="codificar">
-                <p>Digite um texto</p>
-                <textarea id="texto" type="text"> </textarea>
-                <input type="number" id="number"
-                ><br>  
-                <button onclick="code()">Codificar</button> 
-                <br>
-            </fieldset>
-            <br>
-            <fieldset id="decodificar" >
-                <div id="app">
-                    <label for="ipt">Digite um texto</label>
-                    <input id="inpt" type="text" name="ipt" />
-              
-                    <button id="btn">Codificar</button>
-                    <button id="btn2">Decodificar</button>
-                  </div>
-                  <div id="text">
-                    <h2 id="subtitle"></h2>
-                  </div>
-              
-            </fieldset>
- 
+        <div id="areaDigitavel">
+        <textarea class="text"   placeholder="Digite a mensagem:"></textarea>
+        <textarea class="resultado"   placeholder="Mensagem codificada:"></textarea>
+        <label class="incremento" style="display: none;">Incremento: <input type="number" id="numero" min="1" max="25" style="display: none;"> </label>
+        </div>
+        <br>
+
+        <section>
+        <label class="radio"><input type="radio" name="cod" id="codificar" checked>Codificar</label>
+        
+        <label  class="radio"><input type="radio" name="cod" id="decodificar">Decodificar</label>
+        </section>
+        
+        <div id="results">
+        <input type="submit" value="(des)Criptografar" id="verificar">
+        </div>
     </main>
+
     <footer>
         <p>Victor Barros -  Grupo 3  T13 -  Resilia </p>
         <a href="https://github.com/victorb26"><img id="github" src="github.png"></a>
-        <a href="https://www.linkedin.com/in/victorjcbarros/"></a><img id="linkedin" src="linkedin.png"></a>
+        <a href="https://www.linkedin.com/in/victorjcbarros"></a><img id="linkedin" src="linkedin.png"></a>
     </footer>
        
      

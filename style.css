@@ -32,18 +32,9 @@ p{
   color: white;
 }
 
-fieldset {
-    width: 300px;
-    height: 100%;
-    background:rgba(252, 250, 250, 0.2);
-    margin: auto auto;
-    font-family: 'trabalho';
-}
-
-
 body {
     text-align:start;
-    background: black;
+    background-image: url(./background1\ \(1\).gif);
     background-size: cover;
     background-repeat: no-repeat;
     font-family: sans-serif;
@@ -54,15 +45,6 @@ body {
     background-size: 100%;
     width: 100%;
 }
-body {
-    font-family: sans-serif;
-  }
-  
-  #app {
-    display: flex;
-    flex-direction: column;
-  }
-  
   label {
     font-weight: bold;
     text-transform: uppercase;
@@ -72,7 +54,7 @@ body {
   }
   
   input {
-    width: 300px;
+    width: 126px;
     height: 80px;
     margin-top: 15px;
     padding-left: 10px;
@@ -84,31 +66,21 @@ body {
     height: 30px;
     font-family: 'trabalho';
   }
-  #botao{ margin-top: 15px;
-    width: 120px;
-    height: 30px;
+ 
+  .radio {
+  margin: 10px;
+  padding: -23px;
+  font-size: 23px;
+ }
 
-  }
-  #number{margin-top: 15px;
-    width: 120px;
-    height: 30px;
-
-  }
-  #texto{
-    width: 300px;
-    height: 80px;
-    margin-top: 15px;
-    padding-left: 10px;
-
-  }
   footer {
-    width: 99%;
+    width: 100%;
     background: rgba(0, 183, 255, 0.377);
     color: white;
     font-size: 14px;
     padding: 25px;
     text-align: center;
-    margin-top: 5%;
+    margin-top: 12%;
     font-family: 'trabalho';
   }
   select{
@@ -123,14 +95,33 @@ body {
   padding: 30px;
   border-radius: 30px;
  }
- #seletor{
+ section{
   display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-content: center;
     justify-content: center;
  }
-
+ #areaDigitavel{
+   display: flex;
+   flex-wrap: nowrap;
+   align-content: center;
+   justify-content: space-around;
+ }
+ .selecionar{
+  display: flex;
+  flex-wrap: nowrap;
+  margin: auto auto;
+ }
+ #results{
+   display: flex;
+   flex-wrap: nowrap;
+   justify-content: center;
+ }
+ #verificar{
+   font-family: 'trabalho';
+ }
+ 
  @font-face {
   font-family: 'trabalho';
   src: url('./Technology-Bold.ttf') format('truetype');
