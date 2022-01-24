@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+    <title>Passinho do Romano - Criptografia</title>
+</head>
+<body>
+    <header>
+        <h1>Decodificador de mensagens</h1>
+        <br>
+        <br>
+        <h2>Transmita suas mensagens secretamente com 2 tipos de criptografia! Escolha abaixo e depois copie e cole.</h2>
+    </header>
+    <br>
+    <br>
+
+    <main>
+           <div id="seletor">
+            <select onchange="check()" id="codetipo"><br>
+                <option>Selecione a linguagem</option>
+                <option value="base64">Base64</option>
+                <option value="cesar">Cifra de Cesar</option>
+            </select>
+            <br>
+            <br>
+        </div>
+
+            <fieldset id="codificar">
+                <p>Digite um texto</p>
+                <textarea id="texto" type="text"> </textarea>
+                <input type="number" id="number"
+                ><br>  
+                <button onclick="code()">Codificar</button> 
+                <br>
+            </fieldset>
+            <br>
+            <fieldset id="decodificar" >
+                <div id="app">
+                    <label for="ipt">Digite um texto</label>
+                    <input id="inpt" type="text" name="ipt" />
+              
+                    <button id="btn">Codificar</button>
+                    <button id="btn2">Decodificar</button>
+                  </div>
+                  <div id="text">
+                    <h2 id="subtitle"></h2>
+                  </div>
+              
+            </fieldset>
+ 
+    </main>
+    <footer>
+        <p>Victor Barros -  Grupo 3  T13 -  Resilia </p>
+        <a href="https://github.com/victorb26"><img id="github" src="github.png"></a>
+        <a href="https://www.linkedin.com/in/victorjcbarros/"></a><img id="linkedin" src="linkedin.png"></a>
+    </footer>
+       
+     
+
+   
+</body>
+<script src="main.js"></script>
+</html>
